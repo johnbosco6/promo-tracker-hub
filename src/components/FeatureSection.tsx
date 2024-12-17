@@ -1,28 +1,31 @@
 import { Bell, BarChart, Zap } from "lucide-react";
-
-const features = [
-  {
-    icon: Bell,
-    title: "Powiadomienia",
-    description: "Docieraj do klientów z promocjami w czasie rzeczywistym",
-  },
-  {
-    icon: BarChart,
-    title: "Analityka",
-    description: "Śledź skuteczność swoich kampanii promocyjnych",
-  },
-  {
-    icon: Zap,
-    title: "Szybkie wdrożenie",
-    description: "Zacznij wysyłać powiadomienia w kilka minut",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const FeatureSection = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: Bell,
+      title: t("features.notifications"),
+      description: t("features.notifications.desc"),
+    },
+    {
+      icon: BarChart,
+      title: t("features.analytics"),
+      description: t("features.analytics.desc"),
+    },
+    {
+      icon: Zap,
+      title: t("features.quick"),
+      description: t("features.quick.desc"),
+    },
+  ];
+
   return (
     <div className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Dlaczego warto nas wybrać?</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">{t("features.title")}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
